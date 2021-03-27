@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+		integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+	<title>Heart Predictor</title>
+</head>
+
+<body class="bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+		<a class="navbar-brand disabled " href="#">Heart Disease Predictor</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+				  </li>
+				<li class="nav-item ">
+					<a class="nav-link text-light" href="/about">About This</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link text-light" href="/contact" tabindex="-1" aria-disabled="true">Contact Us</a>
+				</li>
+			</ul>
+			<!-- <form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			</form> -->
+		</div>
+	</nav>
+	<div class="container bg-info border border-danger mt-5 rounded">
+		<h1 class="text-center mt-3 text-light">Heart Disease Predictor</h1>
+		<!-- //age //sex//cp//trestbps chol fbs restecg thalach exang oldpeak slope ca thal -->
+		<form action="/" method="POST">
+			<div class="form-row">
+			<div class="form-group col-md-6 text-light">
+				<label for="age">Age</label>
+				<input type="text" class="form-control t" id="Age" name="age" placeholder="Enter your age (in years)"
+					required>
+			</div>
+			<div class="form-group col-md-6 text-light">
+				<label for="trestbps">Resting Blood Pressure(in mm Hg)</label>
+				<input type="text" class="form-control" id="trestbps" name="trestbps" placeholder="Enter trestbps value"
+					required>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-6 text-light">
+				<label for="Gender">Gender</label>
+				<select class="form-control custom-select" name="sex" id="Gender" >
+					<option value="1">Male</option>
+					<option value="0">Female</option>
+				</select>
+			</div>
+			<div class="form-group col-md-6 text-light">
+				<label for="cp">Chest Pain Type</label>
+				<select class="form-control custom-select" name="cp" id="cp">
+					<option value="1">Typical Angina</option>
+					<option value="2">Atypical Angina</option>
+					<option value="3">Non-Anginal Pain</option>
+					<option value="4">Asymptomatic</option>
+				</select>
+			</div>
+		</div>
+			
+		<div class="form-row">
+			<div class="form-group col-md-6 text-light">
+				<label for="chol">Serum Cholerstrol(mg/dl)</label>
+				<input type="text" class="form-control" id="chol" name="chol" placeholder="Enter cholestrol value"
+					>
+			</div>
+
+			<div class="form-group col-md-6 text-light">
+				<label for="fbs">Fasting Blood Sugar</label>
+				<select class="form-control custom-select" name="fbs" id="fbs">
+					<option value="0">less than equal to 120 mg/dl</option>
+					<option value="1">greather than 120 mg/dl</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-6 text-light">
+				<label for="restecg">Resting ECG</label>
+				<select class="form-control custom-select" name="restecg" id="restecg" >
+					<option value="0">Normal</option>
+					<option value="1"> Having ST-T wave abnormality </option>
+					<option value="2">showing probable or definite left ventricular hypertrophy by Estes' criteria
+					</option>
+				</select>
+			</div>
+
+			<div class="form-group col-md-6 text-light">
+				<label for="slope">Slope of the peak exercise ST segment</label>
+				<select class="form-control custom-select" name="slope" id="slope" >
+					<option value="0">Upsloping</option>
+					<option value="1">Flat</option>
+					<option value="2">Downsloping</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-6 text-light">
+				<label for="exang">Exercise induced angina</label>
+				<select class="form-control custom-select" name="exang" id="exang" >
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</select>
+			</div>
+
+			<div class="form-group col-md-6 text-light">
+				<label for="oldpeak"> ST depression induced by exercise relative to rest</label>
+				<input type="number" step=".01" class="form-control" id="oldpeak" name="oldpeak" placeholder="Enter oldpeak value"
+					required>
+			</div>
+			
+		</div>
+			<div class="form-group text-light" >
+				<label for="thalach">Maximum Heart Rate Achieved</label>
+				<input type="text" class="form-control" id="thalach" name="thalach" placeholder="Enter thalach value"
+					>
+			</div>
+			<div class="form-row">
+			<div class="form-group col-md-6 text-light">
+				<label for="ca">Number of major vessels (0-3) colored by flourosopy</label>
+				<select class="form-control custom-select" name="ca" id="ca">
+					<option value="0">0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+				</select>
+			</div>
+			<div class="form-group col-md-6 text-light">
+				<label for="thal">Thalassemia </label>
+				<select class="form-control custom-select" name="thal" id="thal" required>
+					<option value="1">Normal</option>
+					<option value="2">Fixed Defect</option>
+					<option value="3">Reversable Defect</option>
+				</select>
+			</div>
+		</div>
+
+			<button class="btn btn-danger mb-3">Submit</button>
+		</form>
+	</div>
+<div>                
+<br>
+<br>
+<br>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+		crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
